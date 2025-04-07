@@ -64,8 +64,8 @@ jobs:
           - '3.10'  # [EOL] End of Life: 31 Oct 2026
           - '3.11'  # [EOL] End of Life: 31 Dec 2027
           - '3.12'  # [EOL] End of Life: 31 Dec 2028
-          - '3.13'  # [EOL] End of Life: 31 Oct 2029
-    continue-on-error: ${{ matrix.python-version == '3.12' || matrix.python-version == '3.13' }}
+          #- '3.13'  # [EOL] End of Life: 31 Oct 2029
+#    continue-on-error: ${{ matrix.python-version == '3.12' || matrix.python-version == '3.13' }}
 
     steps:
       # Checkout the repository
