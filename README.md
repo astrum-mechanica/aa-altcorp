@@ -1,5 +1,15 @@
 # Example plugin app for Alliance Auth - LAWN Version
 
+[![Badge: Version]][pypi]
+[![Badge: License]][license]
+[![Badge: Supported Python Versions]][pypi]
+[![Badge: Supported Django Versions]][pypi]
+![Badge: pre-commit]
+[![Badge: pre-commit.ci status]][pre-commit.ci status]
+[![Badge: Code Style: black]][black code formatter documentation]
+[![Badge: Automated Tests]][automated tests on github]
+[![Badge: Code Coverage]][codecov]
+
 This is an example plugin app for [Alliance Auth](https://gitlab.com/allianceauth/allianceauth) (AA) that can be used as starting point to develop custom plugins.
 It is a modified version of [allianceauth-example-plugin](https://gitlab.com/ErikKalkoken/allianceauth-example-plugin), that has been modified to hold our preffered setup.
 The instructions have been modified to fit our use case.
@@ -67,3 +77,19 @@ Here are all relevant permissions:
 | ---------------------------------------------- | ------------------------------------------------------------------------------- |
 | `general - Can access this app and see timers` | Basic permission required by anyone to access this app and request an alt corp. |
 | `general - Can manage alt corp requests`       | Users with this permission can manage requests.                                 |
+
+[automated tests on github]: https://github.com/astrum-mechanica/aa-altcorp/actions/workflows/automated-checks.yml
+[badge: automated tests]: https://github.com/astrum-mechanica/aa-altcorp/actions/workflows/automated-checks.yml/badge.svg "Automated Tests"
+[badge: code coverage]: https://codecov.io/gh/astrum-mechanica/aa-altcorp/branch/master/graph/badge.svg "Code Coverage"
+[badge: code style: black]: https://img.shields.io/badge/code%20style-black-000000.svg "Code Style: black"
+[badge: license]: https://img.shields.io/github/license/astrum-mechanica/aa-altcorp "License"
+[badge: pre-commit]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white "pre-commit"
+[badge: pre-commit.ci status]: https://results.pre-commit.ci/badge/github/astrum-mechanica/aa-altcorp/master.svg "pre-commit.ci status"
+[badge: supported django versions]: https://img.shields.io/pypi/djversions/aa-altcorp?label=django "Supported Django Versions"
+[badge: supported python versions]: https://img.shields.io/pypi/pyversions/aa-altcorp "Supported Python Versions"
+[badge: version]: https://img.shields.io/pypi/v/aa-altcorp?label=release "Version"
+[black code formatter documentation]: http://black.readthedocs.io/en/latest/
+[codecov]: https://codecov.io/gh/astrum-mechanica/aa-altcorp
+[license]: https://github.com/astrum-mechanica/aa-altcorp/blob/master/LICENSE
+[pre-commit.ci status]: https://results.pre-commit.ci/latest/github/astrum-mechanica/aa-altcorp/master "pre-commit.ci"
+[pypi]: https://pypi.org/project/aa-altcorp/
