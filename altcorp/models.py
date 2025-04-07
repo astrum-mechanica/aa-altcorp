@@ -26,7 +26,7 @@ class General(models.Model):
         managed = False
         default_permissions = ()
         permissions = (
-            ("basic_access", "Can access this app and see timers"),
+            ("access_app", "Can access this app and make a request"),
             ("manage_requests", "Can manage alt corp requests."),
         )
 

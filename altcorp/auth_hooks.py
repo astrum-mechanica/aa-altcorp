@@ -22,7 +22,7 @@ class ExampleMenuItem(MenuItemHook):
         )
 
     def render(self, request):
-        if request.user.has_perm("altcorp.basic_access"):
+        if request.user.has_perm("altcorp.access_app"):
             return MenuItemHook.render(self, request)
         return ""
 
