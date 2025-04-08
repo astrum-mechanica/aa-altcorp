@@ -4,5 +4,5 @@
 # Django
 from django.utils.translation import gettext_lazy as _
 
-__version__ = "0.1.2-beta"
+__version__ = "0.1.2-beta.2"
 __title__ = _("Alt Corp")

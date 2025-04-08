@@ -205,7 +205,7 @@ def _calc_corporations(user: User) -> list[EveCorporationInfo]:
     # Fetch corporations where the user's character is the CEO
     corporations_qs = EveCorporationInfo.objects.filter(
         ceo_id__in=character_ids
-    ).exclude(alliance_id__in=excluded_alliance_ids)
+    ).exclude(alliance__alliance_id__in=excluded_alliance_ids)
 
     logger.debug(
         "Corporation queryset (before evaluation) for user '%s': %s",
