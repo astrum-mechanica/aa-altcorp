@@ -181,13 +181,16 @@ def _calc_corporations(user: User) -> list[EveCorporationInfo]:
         List[EveCorporationInfo]: A list of corporation objects.
     """
 
+    logger.debug("Starting _calc_corporations for user: %s", user.username)
+
     # Fetch all EveCharacters belonging to the user
     eve_characters_qs = EveCharacter.objects.filter(
         character_ownership__user=user
     ).select_related("character_ownership__user")
 
-    # Get the IDs of the user's characters
     character_ids = list(eve_characters_qs.values_list("character_id", flat=True))
+    logger.debug("Found character IDs for user %s: %s", user.username, character_ids)
+
     if not character_ids:
         logger.warning(
             "No character IDs found for user '%s'. Returning an empty list.",
@@ -197,13 +200,24 @@ def _calc_corporations(user: User) -> list[EveCorporationInfo]:
 
     # Get the excluded alliance IDs from the configuration
     excluded_alliance_ids = AC_ALLIANCE_IDS
+    logger.debug("Excluded alliance IDs: %s", excluded_alliance_ids)
 
     # Fetch corporations where the user's character is the CEO
-    # and exclude those in the specified alliances
-    corporations = EveCorporationInfo.objects.filter(ceo_id__in=character_ids).exclude(
-        alliance_id__in=excluded_alliance_ids
+    corporations_qs = EveCorporationInfo.objects.filter(
+        ceo_id__in=character_ids
+    ).exclude(alliance_id__in=excluded_alliance_ids)
+
+    logger.debug(
+        "Corporation queryset (before evaluation) for user '%s': %s",
+        user.username,
+        str(corporations_qs.query),
     )
 
-    result = list(corporations)
+    result = list(corporations_qs)
+    logger.info(
+        "Found %d corporation(s) for user '%s' after filtering.",
+        len(result),
+        user.username,
+    )
 
     return result
