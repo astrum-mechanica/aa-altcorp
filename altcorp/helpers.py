@@ -52,36 +52,34 @@ def has_required_scopes_for_request(
     char: EveCharacter,
     quick_check: bool = False,
 ) -> bool:
-    """Returns True if given character has the required scopes
+    """Returns True if the given character has all required scopes, even across multiple tokens.
 
     Params:
-    - user: provide User object to shorten processing time
-    - quick: if True will not check if tokens are valid to save time
+    - char: EveCharacter object.
+    - quick_check: if True, skips token validity checks to save time.
     """
-    # get the user and check they have the member state
-
     try:
         user = get_user_from_evecharacter(character=char)
         state_name = user.profile.state.name
     except ObjectDoesNotExist:
         return False
 
-    if state_name in AC_REQUIRED_SCOPES:
-        scopes = AC_REQUIRED_SCOPES[state_name]
-        # the user has a valid state lets check the characters token
-        scopes_string = " ".join(scopes)
-        token_qs = Token.objects.filter(character_id=char.character_id).require_scopes(
-            scopes_string
-        )
-
-    else:
+    if state_name not in AC_REQUIRED_SCOPES:
         return False
 
+    required_scopes = set(AC_REQUIRED_SCOPES[state_name])
+
+    token_qs = Token.objects.filter(character_id=char.character_id)
     if not quick_check:
         token_qs = token_qs.require_valid()
 
-    result = token_qs.exists()
-    return result
+    # Accumulate all granted scope names across all tokens
+    granted_scopes = set()
+    for token in token_qs:
+        granted_scopes.update(token.scopes.values_list("name", flat=True))
+
+    # Check if all required scopes are present
+    return required_scopes.issubset(granted_scopes)
 
 
 def send_embed_message(
