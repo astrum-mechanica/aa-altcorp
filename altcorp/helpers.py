@@ -28,7 +28,7 @@ logger = get_extension_logger(__name__)
 
 def member_tokens_count_for_corp(
     corp_id: int,
-    quick_check: bool = False,
+    quick_check: bool = True,
 ) -> tuple[int, list[str]]:
     """
     Returns the number of valid tokens for a given corp and a list of names without valid tokens.
@@ -50,7 +50,7 @@ def member_tokens_count_for_corp(
 
 def has_required_scopes_for_request(
     char: EveCharacter,
-    quick_check: bool = False,
+    quick_check: bool = True,
 ) -> bool:
     """Returns True if the given character has all required scopes, even across multiple tokens.
 
