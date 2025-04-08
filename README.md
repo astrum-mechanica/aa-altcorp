@@ -51,13 +51,14 @@ Here is a list of available settings for this app. They can be configured by add
 
 Note that all settings are optional and the app will use the documented default settings if they are not used.
 
-| Name              | Description                                                                                                                                                                                | Default  |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| `AC_ALT_ALLIANCE` | The ID of the alt alliance.                                                                                                                                                                | `123456` |
-| `AC_ALLIANCE_IDS` | A list of alliance ID's. Toons in an alt corp must have their users main character as part of one of theses alliances. Blank ignores this check and will allow anyone to be in an alt corp | `[]`     |
-| `AC_WEBHOOK`      | Webhook for sending manager notifications\`                                                                                                                                                | \`\`     |
-| `AC_REVOKE_DAYS`  | Days of non compliance before the app tells you to remove a corp from alt alliance                                                                                                         | `7`      |
-| `AC_IGNORE_CORPS` | A list of corps in the alt alliance to ignore. Use to ignore executor or other corps that don't require checks.                                                                            | `[]`     |
+| Name                | Description                                                                                                                                                                                | Default                      |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- |
+| `AC_ALT_ALLIANCE`   | The ID of the alt alliance.                                                                                                                                                                | `123456`                     |
+| `AC_ALLIANCE_IDS`   | A list of alliance ID's. Toons in an alt corp must have their users main character as part of one of theses alliances. Blank ignores this check and will allow anyone to be in an alt corp | `[]`                         |
+| `AC_WEBHOOK`        | Webhook for sending manager notifications\`                                                                                                                                                | \`\`                         |
+| `AC_REVOKE_DAYS`    | Days of non compliance before the app tells you to remove a corp from alt alliance                                                                                                         | `7`                          |
+| `AC_IGNORE_CORPS`   | A list of corps in the alt alliance to ignore. Use to ignore executor or other corps that don't require checks.                                                                            | `[]`                         |
+| `AC_REQUIRED_SCOPE` | A list of states and scopes to check toons for.                                                                                                                                            | `{"Member": ["publicData"]}` |
 
 ## Permissions
 
