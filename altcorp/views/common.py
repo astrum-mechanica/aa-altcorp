@@ -22,12 +22,12 @@ def add_common_context(
     try:
         alliance = EveAllianceInfo.objects.get(alliance_id=AC_ALT_ALLIANCE)
     except EveAllianceInfo.DoesNotExist:
-        alliance = "None"
+        alliance = None
 
     if alliance:
         alliance_name = alliance.alliance_name
     else:
-        alliance_name = "None"
+        alliance_name = "Unknown"
     new_context = {
         **{
             "total_count": {

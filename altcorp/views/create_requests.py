@@ -94,9 +94,6 @@ def request_corporations(request):
             deadline_passed = False
             tokens, unreg = member_tokens_count_for_corp(corp.corporation_id)
 
-        if corp.corporation_id == 98718236:
-            tokens = corp.member_count
-
         # Gather data for this corporation
         row = {
             "token_count": tokens,
