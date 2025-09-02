@@ -1,4 +1,4 @@
-# Alt Corp management app for Alliance Auth
+# DEFUNCT - Alt Corp management app for Alliance Auth
 
 [![Badge: Version]][pypi]
 [![Badge: License]][license]
